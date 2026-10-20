@@ -1,0 +1,51 @@
+MOORTY VOICE — YOUTUBE + TIKTOK
+
+FUNCIONES
+- YouTube: lector de chat, contador de espectadores y alertas de eventos disponibles.
+- TikTok LIVE: selector para @moorty_yt o @tocolita; lectura de comentarios y avisos compatibles de regalos, likes, seguidores, compartidos y entradas cuando TikTokLive los entrega.
+- Voz en español con Edge TTS.
+- Audio por la PC y en OBS capturando el audio de escritorio de Windows.
+
+INSTALACIÓN
+1. Extrae el ZIP completo en una carpeta.
+2. Ejecuta INSTALAR_Y_ABRIR.bat.
+3. En la aplicación selecciona TikTok y elige @moorty_yt o @tocolita.
+4. Pulsa CONECTAR CHAT. La cuenta seleccionada debe tener un LIVE público activo.
+5. Para YouTube, selecciona YouTube e introduce tu API key y el ID del canal como antes.
+
+AUDIO EN OBS
+- En OBS, en Fuentes, añade o activa Captura de salida de audio (Windows) / Audio de escritorio.
+- Comprueba en el mezclador que el medidor se mueve cuando pulsas PROBAR VOZ.
+- Si usas auriculares y no quieres que el sonido se filtre por el micrófono, usa captura de salida de audio, no un micrófono abierto apuntando a los parlantes.
+
+IMPORTANTE
+- TikTokLive es una biblioteca comunitaria no oficial. TikTok puede cambiar su sistema y causar desconexiones o incompatibilidades.
+- Solo intenta leer eventos que la biblioteca reciba de directos accesibles públicamente; no se garantiza que todos los eventos aparezcan siempre.
+- No introduzcas contraseñas ni cookies de TikTok en esta aplicación.
+- Para leer los comentarios de @tocolita, ese perfil debe estar transmitiendo en un LIVE público.
+- YouTube sigue usando la configuración API/OAuth existente.
+
+
+MEJORA DE AVISOS SIMULTÁNEOS
+Con "Agrupar avisos simultáneos" activado, la aplicación espera brevemente y une hasta cinco eventos que llegan juntos en una sola locución. Los eventos ya no se eliminan solo porque llegue otro evento al mismo tiempo. Desactiva la opción si prefieres escuchar cada aviso por separado.
+
+
+INSTALADOR CORREGIDO: usa Python 3.13 de forma explicita para evitar que pygame intente instalarse con Python 3.15, que puede no tener wheel compatible. Si aparece CERTIFICATE_VERIFY_FAILED, no desactives SSL; revisa fecha/hora, proxy o antivirus HTTPS y certificados del sistema/Python.
+
+
+CORRECCIÓN DE EVENTOS:
+- Se anuncian entradas después de una ventana inicial breve de 3 segundos.
+- Se filtran eventos repetidos de TikTok por usuario/tipo para reducir duplicados.
+- Se eliminan frases duplicadas dentro de una misma locución agrupada.
+
+
+SONIDOS PERSONALIZADOS DE ENTRADA — SOLO TIKTOK
+- En la sección "SONIDOS DE ENTRADA — SOLO TIKTOK", elige archivos WAV u OGG para entrada normal y suscriptor.
+- Pulsa "Probar" para verificar cada sonido y ajusta el volumen independiente.
+- Los sonidos personalizados no modifican la voz ni los eventos de YouTube.
+- La versión instalada de TikTokLive debe exponer un indicador booleano explícito de suscripción para distinguir las categorías. Si el evento no lo expone, la aplicación no asigna una categoría ni reproduce un sonido específico, para evitar clasificaciones falsas.
+
+MEJORA: PRIORIDAD DE MENSAJES RECIENTES Y DESPLAZAMIENTO
+- Nueva opción activada por defecto: "Priorizar SOLO los mensajes más recientes".
+- Al conectar, la cola pendiente anterior se vacía; si la locución se atrasa, se descartan avisos antiguos pendientes y se prioriza el más reciente. Aplica a la cola de voz de ambas plataformas sin cambiar sus conexiones ni sus eventos de entrada.
+- La ventana principal ahora se puede desplazar con la rueda del ratón y la barra vertical; el panel de mensajes mantiene su desplazamiento propio.
